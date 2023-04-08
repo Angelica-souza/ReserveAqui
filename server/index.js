@@ -1,18 +1,15 @@
-const express = require("express")
-const app = express();
-const mysql = express();
+const jsonServer = require('json-server')
+const auth = require('json-server-auth')
 
-const db = mysql.createPool({
-    host: "localhost",
-    user: "root", 
-    password: "password",
-    database: ""
-});
+const app = jsonServer.create()
+const router = jsonServer.router('db.json')
 
-app.get("/", (req, res) => {
-    res.send("sdsdsdfdfdf");
-})
+// /!\ Bind the router db to the app
+app.db = router.db
 
-app.listen(3001, () => {
-    console.log("Já está rodando na porta 3001")
+// You must apply the auth middleware before the router
+app.use(auth)
+app.use(router)
+app.listen(3000, () =>{
+    console.log("Inicializado");
 })

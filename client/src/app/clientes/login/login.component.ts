@@ -27,6 +27,8 @@ export class LoginComponent {
 
   submitLogin(){
     let DadosLogin = this.loginForm.getRawValue() as LoginModel;
+
+    
     console.log(DadosLogin);
   }
 }

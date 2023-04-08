@@ -1,0 +1,11 @@
+{
+  "users": [
+    {
+      "email": "angelicatecinfor@gmail.com",
+      "password": "$2a$10$G7O6UDfbaGbQLEV0ur1Mn.nmCYkZc769rGqTt8heg9aeM9gVLPOdu",
+      "name": "Angélica",
+      "admin": true,
+      "id": 1
+    }
+  ]
+}
