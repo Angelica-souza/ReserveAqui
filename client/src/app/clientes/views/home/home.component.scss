@@ -1,0 +1,56 @@
+:host {
+    background-color: blue;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    background-color: tomato;
+    width: 100vw;
+
+    .container__header {
+        background-color: red;
+        height: 100vh;
+        width: 20%;
+
+        .container__logo{
+            background-color: #27FB6B;
+            height: 10%;
+            display: flex;
+            justify-content: center;
+
+            .logo{
+                color: #fff;
+                font-family: Arial, sans-serif;
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+                font-size: 1.4rem;
+            }
+        }
+
+        .container__menu{
+            background-color: yellow;
+            height: 80%;
+
+            .menu__list{
+                margin: 0;
+                width: 100%;
+                background-color: #fff;
+            }
+        }
+
+        .container__footer{
+            background-color: #880044;
+            height: 10%;
+
+            .footer__user{
+                margin: 0;
+            }
+        }
+    }
+
+    .container__main {
+        background-color: green;
+        height: 100vh;
+        width: 80%;
+    }
+}
