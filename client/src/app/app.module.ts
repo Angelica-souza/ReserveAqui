@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ClientesModule } from "./clientes/clientes.module";
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './clientes/views/home/home.component';
 
 @NgModule({
   declarations: [
