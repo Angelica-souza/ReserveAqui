@@ -20,4 +20,9 @@ export class RequesteService {
   signupUser(payload: any){
     return this.httpCliente.post<any>(`${this.apiUrl}/signup`, payload)
   }
+
+  getTables(){
+    console.log( this.httpCliente.get<any>(`${this.apiUrl}/tables`))
+    return  this.httpCliente.get<any>(`${this.apiUrl}/tables`)
+  }
 }

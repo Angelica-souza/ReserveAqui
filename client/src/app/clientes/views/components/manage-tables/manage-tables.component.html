@@ -1,25 +1,21 @@
 <div class="container">
     <h1>Gerenciador</h1>
 
-    <table class="table">
+    <table class="table" *ngFor="let table of tables">
         <thead>
             <tr>
                 <th scope="col">Mesa</th>
                 <th scope="col">Lugares</th>
                 <th scope="col">Status</th>
-                <th scope="col">Ano</th>
-                <th></th>
-                <th></th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <th scope="row">{{novela.id}}</th>
-                <td>{{novela.titulo}}</td>
-                <td>{{novela.emissora}}</td>
-                <td>{{novela.ano}}</td>
-                <td><button (click)="deleteNovela(novela.id)" class="btn btn-danger">delete</button></td>
-                <td><button routerLink="/editar/{{novela.id}}" class="btn btn-warning">editar</button></td>
+                <td>{{table.id}}</td>
+                <td>{{table.capacity}}</td>
+                <td>{{table.status}}</td>
+                <td><button class="btn btn-danger">delete</button></td>
+                <td><button class="btn btn-warning">editar</button></td>
             </tr>
         </tbody>
     </table>
