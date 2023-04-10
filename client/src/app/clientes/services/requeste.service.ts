@@ -15,8 +15,6 @@ export class RequesteService {
 
   signinUser(payload: any){
     return this.httpCliente.post<any>(`${this.apiUrl}/signin`, payload);
-    
-  console.log(this.apiUrl);
   }
 
   signupUser(payload: any){
