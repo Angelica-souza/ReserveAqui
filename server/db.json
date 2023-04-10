@@ -2,57 +2,75 @@
   "users": [
     {
       "email": "angelicatecinfor@gmail.com",
-      "password": "$2a$10$QSMfgTpO99i.alXvgk4nkuLo2XF2P0c6lCAcKNdMdi7Vn8p4zuE4G",
-      "name": "ange",
+      "password": "$2a$10$9ADqGi8yFYV.eJVCeMTSG.SZtW3wQrbg3mXQq0NBxUTCz6jkD1ffy",
+      "name": "angca",
       "id": 1
     },
     {
-      "email": "angelicatecinfo@gmail.com",
-      "password": "$2a$10$wOhvYrv5PlYD1wBtXxQV6.LfjsJLkzSeChgBgk0UTrhLymmKxJqQq",
-      "name": "angelica",
+      "email": "a@a",
+      "password": "$2a$10$e2kX5NeZDFt.3PyB6V5TJOQFq9Zgd.p790UpV7jcvOW7iQP9OtPcm",
+      "name": "an",
       "id": 2
     },
     {
-      "email": "sjjh@ytyt",
-      "password": "$2a$10$G811CseSAeFHd1B/HmC3tekCniGsL.43KYN0FsfcBfF9nc9KYWMAO",
-      "name": "fsfjkjkj",
+      "email": "testex@teste",
+      "password": "$2a$10$a3B6A7/x4jX9xaqbk.wVeOlcIqakfu4Sy5JD3O8HWi6NHTJOhhIFO",
+      "name": "dfsd",
       "id": 3
     },
     {
-      "email": "dsfs@hghg",
-      "password": "$2a$10$mOblqQiAubWPzZcepLDbT.ayZzpU3GpbvaoWB0Z//7jXXGs3uPpI2",
-      "name": "ghg",
+      "email": "teste@teste",
+      "password": "$2a$10$nkabk9Psy1nH.uK7ztpNluEBaJ.F2KtN1.EgK5XWCPI8lGD6FbbzW",
+      "name": "angelica",
       "id": 4
     },
     {
-      "email": "e@fdfd",
-      "password": "$2a$10$GL61px8fHvqkbZ5cfZQ0vegWd9XfAeET2gZGsLT1yY.Yu7xt9zF72",
-      "name": "fdfd",
+      "email": "testey@teste.com.br",
+      "password": "$2a$10$zyyamThrf3GCi9Og3ElGSuRXflpY5TFN1elkXiCD5Wpwb1grxfz1G",
+      "name": "a",
       "id": 5
     },
     {
-      "email": "sdsdsd@fdf",
-      "password": "$2a$10$xRz.gyCFY6U7spgVeQDDBOn1OUEIAsZ5N0pdM5szypXzYagYeYmKG",
-      "name": "ghg",
+      "email": "teste@teste2",
+      "password": "$2a$10$XOGYZ0vGmnB5QJCjFtfZj.iWMDfFdihLt091R3.wJtXwfwvDR7WTW",
+      "name": "teste user",
       "id": 6
     },
     {
-      "email": "ww@dd",
-      "password": "$2a$10$sZfxyBMzYRsFbrfCgyy0cOt3/n8Dplb2e3pd0CWb3aRTcOFGNH1qO",
-      "name": "cvvc",
+      "email": "aaa@a",
+      "password": "$2a$10$bnHz/aTNeL7RB.O23nF7fOy47saG2ndasoofRVIP47GGcr02thlWK",
+      "name": "ee",
       "id": 7
     },
     {
-      "email": "ange@vcvc",
-      "password": "$2a$10$chBsdBpatoIjh9q6K6o7l.9LsD1W/DcKg.u/CG/rME2Wo2q2h3J66",
-      "name": "cvc",
+      "email": "almerindo@almerindo",
+      "password": "$2a$10$Gl5tNOs07SAsjrcJTHQUqOZ1zCiHhvgUyHSlo8lRBDNPUtPT13rX6",
+      "name": "Junior",
       "id": 8
+    }
+  ],
+  "tables": [
+    {
+      "id": 1,
+      "capacity": 4,
+      "status": "available"
     },
     {
-      "email": "er@dff",
-      "password": "$2a$10$Aa3F0ECCh7AhVKM6YCc6kORfV9DwP.jVqNjzzA1DU71eU7fadj3p2",
-      "name": "gbfg'",
-      "id": 9
+      "id": 2,
+      "capacity": 6,
+      "status": "occupied",
+      "customer_id": 1
+    },
+    {
+      "id": 3,
+      "capacity": 2,
+      "status": "available"
+    },
+    {
+      "id": 4,
+      "capacity": 8,
+      "status": "occupied",
+      "customer_id": 2
     }
   ]
 }
