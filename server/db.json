@@ -2,26 +2,9 @@
   "users": [],
   "tables": [
     {
-      "id": 1,
-      "capacity": 4,
-      "status": "available"
-    },
-    {
-      "id": 2,
-      "capacity": 6,
-      "status": "occupied",
-      "customer_id": 1
-    },
-    {
-      "id": 3,
-      "capacity": 2,
-      "status": "available"
-    },
-    {
-      "id": 4,
-      "capacity": 8,
-      "status": "occupied",
-      "customer_id": 2
+      "capacity": "9",
+      "status": "livre",
+      "id": 1
     }
   ]
 }

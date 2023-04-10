@@ -12,7 +12,8 @@ import { ManageTablesComponent } from './views/components/manage-tables/manage-t
 import { DescriptionComponent } from './views/components/description/description.component';
 import { ReserveComponent } from './views/components/reserve/reserve.component';
 import { MyReservationsComponent } from './views/components/my-reservations/my-reservations.component';
-
+import { ListTablesComponent } from './views/components/list-tables/list-tables.component';
+import { NewTablesComponent } from './views/components/new-tables/new-tables.component';
 
 
 @NgModule({
@@ -22,7 +23,9 @@ import { MyReservationsComponent } from './views/components/my-reservations/my-r
     ManageTablesComponent,
     DescriptionComponent,
     ReserveComponent,
-    MyReservationsComponent
+    MyReservationsComponent,
+    ListTablesComponent,
+    NewTablesComponent
   ],
   imports: [
     CommonModule,

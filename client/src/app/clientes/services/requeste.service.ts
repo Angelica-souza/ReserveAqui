@@ -22,7 +22,14 @@ export class RequesteService {
   }
 
   getTables(){
-    console.log( this.httpCliente.get<any>(`${this.apiUrl}/tables`))
     return  this.httpCliente.get<any>(`${this.apiUrl}/tables`)
+  }
+
+  setTables(payload: any){
+    return  this.httpCliente.post<any>(`${this.apiUrl}/tables`, payload)
+  }
+
+  delTables(id: number){
+    return this.httpCliente.delete<any>(`${this.apiUrl}/tables/${id}`)
   }
 }

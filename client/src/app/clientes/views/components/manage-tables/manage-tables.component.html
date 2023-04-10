@@ -14,14 +14,13 @@
                 <td>{{table.id}}</td>
                 <td>{{table.capacity}}</td>
                 <td>{{table.status}}</td>
-                <td><button class="btn btn-danger">delete</button></td>
+                <td><button (click)="deleteTable(table.id)" class="btn btn-danger">delete</button></td>
                 <td><button class="btn btn-warning">editar</button></td>
             </tr>
         </tbody>
     </table>
 
-    <div class="d-grid gap-2">
-        <button class="btn btn-primary">
-            Adicionar novela
-        </button>
+    <div>
+        <button *ngIf="!componentVisible" (click)="showComponent()">Nova mesa</button>
+        <app-new-tables *ngIf="componentVisible"></app-new-tables>
     </div>
