@@ -1,23 +1,37 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './clientes/login/login.component'
-import { HomeComponent } from './home/home.component';
-import { RegisterComponent } from './clientes/register/register.component';
+
+import { AuthGuard } from './guard/auth.guard';
+
+import { LoginComponent } from './clientes/views/login/login.component'
+import { HomeComponent } from './clientes/views/home/home.component';
+import { RegisterComponent } from './clientes/views/register/register.component';
+import { DescriptionComponent } from './clientes/views/components/description/description.component';
+import { ReserveComponent } from './clientes/views/components/reserve/reserve.component';
+import { MyReservationsComponent } from './clientes/views/components/my-reservations/my-reservations.component';
+import { ManageTablesComponent } from './clientes/views/components/manage-tables/manage-tables.component';
 
 const routes: Routes = [
   {
-    path: "", 
-    pathMatch: "full",
-    redirectTo: "home"
+    path: "",
+    component: HomeComponent,
+    children: [
+      {path:'', component: DescriptionComponent },
+      {path:'reserve', component: ReserveComponent },
+      {path:'myReservations', component: MyReservationsComponent },
+      {path:'manegeTables', component: ManageTablesComponent }
+
+    ],
+    canActivate: [AuthGuard]
   },
   {
-    path: "home", component: HomeComponent
-  },
-  {
-    path: "register", component: RegisterComponent
+    path: "", redirectTo: 'login', pathMatch: 'full'
   },
   {
     path: "login", component: LoginComponent
+  },
+  {
+    path: "register", component: RegisterComponent
   }
 ];
 
