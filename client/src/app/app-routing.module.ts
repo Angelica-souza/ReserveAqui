@@ -10,17 +10,18 @@ import { DescriptionComponent } from './clientes/views/components/description/de
 import { ReserveComponent } from './clientes/views/components/reserve/reserve.component';
 import { MyReservationsComponent } from './clientes/views/components/my-reservations/my-reservations.component';
 import { ManageTablesComponent } from './clientes/views/components/manage-tables/manage-tables.component';
+import { NewTablesComponent } from './clientes/views/components/new-tables/new-tables.component';
 
 const routes: Routes = [
   {
     path: "",
     component: HomeComponent,
     children: [
-      {path:'', component: DescriptionComponent },
-      {path:'reserve', component: ReserveComponent },
-      {path:'myReservations', component: MyReservationsComponent },
-      {path:'manegeTables', component: ManageTablesComponent }
-
+      { path: '', component: DescriptionComponent },
+      { path: 'reserve', component: ReserveComponent },
+      { path: 'myReservations', component: MyReservationsComponent },
+      { path: 'manegeTables', component: ManageTablesComponent },
+      { path: 'newTablesModal', component: NewTablesComponent }
     ],
     canActivate: [AuthGuard]
   },
