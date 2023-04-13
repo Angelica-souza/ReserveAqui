@@ -1,11 +1,11 @@
 <div class="d-flex h-100">
-    <div class="container p-0 m-0">
-        <div class="bg-secondary container-fluid w-100 h-100 p-0 justify-content-between ">
-            <div class="offcanvas-header flex-column w-100 pb-2 border-bottom">
+    <div class="container p-0 m-0 w-auto">
+        <div class="container-fluid w-100 m-0 h-100 d-flex flex-column justify-content-between ">
+            <div class="offcanvas-header p-3 flex-column w-100 pb-2 border-bottom">
                 <img src="../../../assets/logo.png" alt="">
                 <h2 class="logo m-0">Reserve Aqui</h2>
             </div>
-            <nav class="navbar w-100 mh-100 mt-4 text-center d-flex justify-content-center">
+            <nav class="navbar pe-2 ps-2 text-center mb-5">
                 <div class="offcanvas-body w-100 mb-5">
                     <ul class="navbar-nav justify-content-end pe-3 h-100">
                         <li class="nav-item">
@@ -23,13 +23,21 @@
                         </li>
                     </ul>
                 </div>
-                <div class="fixed-bottom w-25">
-                    <div class="d-flex bg-danger w-100 d-flex justify-content-around">
-                        <p *ngIf="userAuth" class="pe-5 ">{{userAuth}}</p>
-                        <a (click)="signOut()">Sair</a>
-                    </div>
-                </div>
             </nav>
+            <div class=" w-100 border-top">
+                <div class="d-flex justify-content-between align-items-center p-4">
+                    <div class="d-flex align-items-center">
+                        <img class="avatar" src="../../../../assets/avatar.svg" alt="Avatar do usuário">
+                        <p class="m-0 fa-text-width text-lowercase">{{userAuth}}</p>
+                    </div>
+                    <a class="link-primary hover"
+                        (click)="signOut()">Sair</a>
+                </div>
+                <!-- <div class="d-flex w-100 d-flex justify-content-around align-items-center p-3">
+                    <img src="" alt="" srcset="">
+                    
+                </div> -->
+            </div>
         </div>
     </div>
     <div class="container-fluid w-50 m-0">

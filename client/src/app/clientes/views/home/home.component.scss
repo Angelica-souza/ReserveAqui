@@ -11,28 +11,28 @@
 
 .container{
     background-color: white;
-    width: 25%;
 }
 
-.bg-primary{
-    min-height: 100%;
+.avatar{
+    width: 30px;
+    height: 30;
+}
+
+.hover:hover{
+    cursor: pointer;
 }
 // .w-50{
 //     background-color: aliceblue;
 // }
 
-.navbar{
-    background-color: rgb(70, 104, 8);
-    // height: 56.6%;
-}
 
 // .d-flex{
 //  background-color: blueviolet;
 // }
 
-.navbar-nav{
-    background-color: violet;
-}
+// .navbar-nav{
+//     background-color: violet;
+// }
 
 // .container-fluid{
 //     background-color: brown;
