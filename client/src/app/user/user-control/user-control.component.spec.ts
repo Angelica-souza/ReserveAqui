@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NewTablesComponent } from './new-tables.component';
+import { UserControlComponent } from './user-control.component';
 
-describe('NewTablesModalComponent', () => {
-  let component: NewTablesComponent;
-  let fixture: ComponentFixture<NewTablesComponent>;
+describe('UserControlComponent', () => {
+  let component: UserControlComponent;
+  let fixture: ComponentFixture<UserControlComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NewTablesComponent ]
+      declarations: [ UserControlComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(NewTablesComponent);
+    fixture = TestBed.createComponent(UserControlComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

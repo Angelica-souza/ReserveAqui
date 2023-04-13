@@ -27,4 +27,9 @@ export class UserService {
 
     return false
   }
+
+  getAdmin(){
+    const admin = localStorage.getItem('admin');
+    return admin == 'true'
+  }
 }

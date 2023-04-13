@@ -29,32 +29,35 @@ export class RegisterComponent {
       {
         email: ['', [Validators.required, Validators.email]],
         password: ['', [Validators.required]],
-        name: ['', [Validators.required]]
+        name: ['', [Validators.required]],
+        admin: [false]
       }
     )
 
-    if(this.userService.getToken()) this.router.navigate([''])
+    if (this.userService.getToken()) this.router.navigate([''])
   }
 
   submitRegister() {
     const dadosRegister = this.registerForm.getRawValue() as RegisterModel;
     const isPasswordValid = this.userService.validatePassword(dadosRegister.password);
-  
+
     if (!isPasswordValid) {
       this.passwordError = "A senha deve ter 8 dígitos";
       return;
     }
-  
+
     this.requesteService.signupUser(dadosRegister).subscribe({
       next: (value) => {
         window.localStorage.setItem('name', value.user.name)
         window.localStorage.setItem('token', value)
+        window.localStorage.setItem('admin', String(value.user.admin))
 
         this.router.navigate([''])
       },
       error: (error: HttpErrorResponse) => {
-        if(error.status == 400){
-          this.resp ="Usuário já existe"
+        console.log(error.status)
+        if (error.status == 400) {
+          this.resp = "Usuário já existe"
         }
       }
     });

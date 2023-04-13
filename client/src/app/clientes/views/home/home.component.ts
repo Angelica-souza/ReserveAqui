@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { Router } from '@angular/router';
-import { UserService } from '../../services/user.service'
+import { UserService } from '../../../services/user.service'
 
 // type LoginResponse = {
 //     email: string;
@@ -22,6 +22,8 @@ export class HomeComponent {
 
   ngOnInit(){
     this.userAuth = this.userService.getUserName() as string;
+
+    this.linkVisible();
   }
  
   signOut() {
@@ -29,4 +31,9 @@ export class HomeComponent {
     localStorage.removeItem('name');
     location.reload();
   }
+
+  linkVisible(){
+    return this.userService.getAdmin();
+  }
+  
 }

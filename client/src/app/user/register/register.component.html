@@ -1,0 +1,54 @@
+<!-- <div class="title text-center">
+    <h3>Registro</h3>
+</div> -->
+<form [formGroup]="registerForm" (submit)="submitRegister()">
+    <div class="alert alert-danger" *ngIf="resp" role="alert">
+        {{resp}}
+    </div>
+    <div class="mb-3">
+        <label for="name" class="form-label">Nome</label>
+        <input type="text" class="form-control" placeholder="Digite seu nome..." formControlName="name">
+        <div *ngIf="registerForm.get('name')?.invalid && (registerForm.get('name')?.dirty || registerForm.get('name')?.touched)"
+            class="form-text">
+            <div *ngIf="registerForm.get('name')?.errors?.['required']">
+                <span style="color: red;">Campo obrigatorio</span>
+            </div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="e-mail" class="form-label">E-mail</label>
+        <input type="email" class="form-control" placeholder="Digite seu email..." formControlName="email">
+        <div *ngIf="registerForm.get('email')?.invalid && (registerForm.get('email')?.dirty || registerForm.get('email')?.touched)"
+            class="form-text">
+            <div *ngIf="registerForm.get('email')?.errors?.['required']">
+                <span style="color: red;">Campo obrigatorio</span>
+            </div>
+            <div *ngIf="registerForm.get('email')?.errors?.['email']">
+                <span style="color:red">E-mail invalido</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="password" class="form-label">Senha</label>
+        <input type="password" class="form-control" placeholder="Digite sua senha..." maxlength="8"
+            formControlName="password">
+        <div *ngIf="registerForm.get('password')?.invalid && (registerForm.get('password')?.dirty || registerForm.get('password')?.touched)"
+            class="form-text">
+
+            <div *ngIf="registerForm.get('password')?.errors?.['required']">
+                <span style="color: red;">Campo obrigatorio</span>
+            </div>
+        </div>
+        <div *ngIf="registerForm.get('password')?.dirty || registerForm.get('password')?.touched">
+            <div *ngIf="passwordError" class="form-text" style="color: red;">{{ passwordError }}</div>
+        </div>
+    </div>
+
+    <div class="w-100 mb-4 mt-4">
+        <button class="btn btn-primary btn-lg w-100" [disabled]="!registerForm.valid">Cadastrar</button>
+    </div>
+
+    <p class="text-center">já tem uma conta? <a routerLink="/userControl/" class="link-info">Entrar</a></p>
+
+</form>

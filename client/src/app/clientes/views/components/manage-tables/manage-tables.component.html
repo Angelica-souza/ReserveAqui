@@ -15,12 +15,13 @@
                 <td>{{table.capacity}}</td>
                 <td>{{table.status}}</td>
                 <td><button (click)="deleteTable(table.id)" class="btn btn-danger">delete</button></td>
-                <td><button class="btn btn-warning">editar</button></td>
+                <td><button routerLink="/editTables/{{table.id}}" class="btn btn-warning">editar</button></td>
             </tr>
         </tbody>
     </table>
+    <app-edit-tables *ngIf="componentEditVisible"></app-edit-tables>
 
-    <div>
-        <button *ngIf="!componentVisible" (click)="showComponent()">Nova mesa</button>
+    <div *ngIf="!componentEditVisible">
+        <button *ngIf="!componentVisible" (click)="showNewComponent()">Nova mesa</button>
         <app-new-tables *ngIf="componentVisible"></app-new-tables>
     </div>

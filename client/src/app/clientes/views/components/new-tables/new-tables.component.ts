@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { RegisterModel } from 'src/app/clientes/models/RegisterModel';
-import { RequesteService } from 'src/app/clientes/services/requeste.service';
+import { RegisterModel } from 'src/app/models/RegisterModel';
+import { RequesteService } from 'src/app/services/requeste.service';
 
 @Component({
   selector: 'app-new-tables',
@@ -38,6 +38,7 @@ export class NewTablesComponent {
         console.error("errors");
       },
     })
+
   }
 
 

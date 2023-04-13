@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ListTablesComponent } from './list-tables.component';
+import { EditTablesComponent } from './edit-tables.component';
 
-describe('ListTablesComponent', () => {
-  let component: ListTablesComponent;
-  let fixture: ComponentFixture<ListTablesComponent>;
+describe('EditTablesComponent', () => {
+  let component: EditTablesComponent;
+  let fixture: ComponentFixture<EditTablesComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListTablesComponent ]
+      declarations: [ EditTablesComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ListTablesComponent);
+    fixture = TestBed.createComponent(EditTablesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

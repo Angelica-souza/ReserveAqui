@@ -12,7 +12,7 @@ export class AuthGuard {
     
     if (token) return true
 
-    this.router.navigate(['login'])
+    this.router.navigate(['userControl'])
     return false
   }
 }

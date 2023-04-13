@@ -1,10 +1,97 @@
 {
-  "users": [],
+  "users": [
+    {
+      "email": "angelicatecinfor@gmail.com",
+      "password": "$2a$10$1I53N78ovs.Lj31lW6J7HunATgXIPes6hdoSr/mp0pgY6CPXvXlqq",
+      "name": "Angélica",
+      "admin": true,
+      "id": 1
+    },
+    {
+      "email": "a@a",
+      "password": "$2a$10$nKMkBRVaiNtnNPX/QF8sHOJwiE97Xh8KYpGFtT24X0CGO0cF4xfYi",
+      "name": "a",
+      "id": 2
+    },
+    {
+      "email": "a@d",
+      "password": "$2a$10$EY9jwcSoie5FhRS28WUbt.CX8RgVSW3Wq5PBzd9LV5rG3XlzKKS12",
+      "name": "x",
+      "admin": "false",
+      "id": 3
+    },
+    {
+      "email": "d@d",
+      "password": "$2a$10$BpbTinI/Ceb9aR9yRzqjjetg.7G5UGpYZ4aTU5jiTSSGC6qWWcnkq",
+      "name": "a",
+      "admin": false,
+      "id": 4
+    },
+    {
+      "email": "s@s",
+      "password": "$2a$10$tOUgd4W32bb4H1Tpk7kyA.b2kIBPwyoYWzkwuNnO6QV0ddPn4yzBu",
+      "name": "s",
+      "admin": false,
+      "id": 5
+    },
+    {
+      "email": "ts@ts",
+      "password": "$2a$10$xjjNjlWFXr9bWW44o3CREuFlWJBH7fXUn0hI9zzWvi0jKrY8QfM/S",
+      "name": "teste",
+      "admin": false,
+      "id": 6
+    },
+    {
+      "email": "a@g",
+      "password": "$2a$10$FPo8sPok8liDt8cijee/IeFlm8qDE1UBHOX/9V138CRioOuholehS",
+      "name": "angelica",
+      "admin": false,
+      "id": 7
+    },
+    {
+      "email": "dfd@f",
+      "password": "$2a$10$Lx2.sK5h6pjGhW5reSWnG.IWepPG/FpdLvxAGvLfoJyL3N7ufl3Y2",
+      "name": "dd2@ff",
+      "admin": false,
+      "id": 8
+    },
+    {
+      "email": "s2d@f",
+      "password": "$2a$10$f/wTshTPeblG9a1nNNRkwu8KKBCKvARUSxeHTgc4nwfBp5eXnJLqm",
+      "name": "s",
+      "admin": false,
+      "id": 9
+    },
+    {
+      "email": "sdd@sdsd",
+      "password": "$2a$10$.6pF99PYfHj5bFgUvk.HTuTrdIbp8I5qqCRmCosLf.cVuZllqUsy2",
+      "name": "dsds",
+      "admin": false,
+      "id": 10
+    },
+    {
+      "email": "angelicatecinfor@gmail",
+      "password": "$2a$10$mXEKZrgZ18N26T7UJjx4H.aIQLpcNT21blzL0fKtEvZcZQZVuhcq.",
+      "name": "angelica",
+      "admin": false,
+      "id": 11
+    }
+  ],
   "tables": [
     {
-      "capacity": "9",
+      "capacity": "3",
       "status": "livre",
-      "id": 1
+      "id": 8
+    },
+    {
+      "capacity": "8",
+      "status": "livre",
+      "id": 9
+    },
+    {
+      "capacity": "",
+      "status": "livre",
+      "id": 10
     }
   ]
 }

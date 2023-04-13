@@ -5,27 +5,26 @@ import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from '../app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
-import { LoginComponent } from './views/login/login.component';
+
 import { ReactiveFormsModule } from '@angular/forms';
-import { RegisterComponent } from './views/register/register.component';
 import { ManageTablesComponent } from './views/components/manage-tables/manage-tables.component';
 import { DescriptionComponent } from './views/components/description/description.component';
 import { ReserveComponent } from './views/components/reserve/reserve.component';
 import { MyReservationsComponent } from './views/components/my-reservations/my-reservations.component';
-import { ListTablesComponent } from './views/components/list-tables/list-tables.component';
 import { NewTablesComponent } from './views/components/new-tables/new-tables.component';
 
+import { HomeComponent } from './views/home/home.component';
+import { EditTablesComponent } from './views/components/edit-tables/edit-tables.component';
 
 @NgModule({
   declarations: [
-    LoginComponent,
-    RegisterComponent,
     ManageTablesComponent,
     DescriptionComponent,
     ReserveComponent,
     MyReservationsComponent,
-    ListTablesComponent,
-    NewTablesComponent
+    NewTablesComponent,
+    HomeComponent,
+    EditTablesComponent
   ],
   imports: [
     CommonModule,
@@ -34,7 +33,13 @@ import { NewTablesComponent } from './views/components/new-tables/new-tables.com
     AppRoutingModule
   ],
   exports:[
-    LoginComponent
+    ManageTablesComponent,
+    DescriptionComponent,
+    ReserveComponent,
+    MyReservationsComponent,
+    NewTablesComponent,
+    HomeComponent,
+    EditTablesComponent
   ]
 })
 export class ClientesModule { }

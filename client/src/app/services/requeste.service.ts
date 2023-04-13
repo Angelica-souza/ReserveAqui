@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
+import { RegisterTablesModel } from '../models/RegisterTablesModel';
 
 
 @Injectable({
@@ -31,5 +32,9 @@ export class RequesteService {
 
   delTables(id: number){
     return this.httpCliente.delete<any>(`${this.apiUrl}/tables/${id}`)
+  }
+
+  editTable(id: number, payload: any){
+    return this.httpCliente.put<any>(`${this.apiUrl}/tables/${id}`, payload)
   }
 }
