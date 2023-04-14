@@ -1,27 +1,49 @@
-<div class="container">
-    <h1>Gerenciador</h1>
+<div class="container d-flex flex-column justify-content-between h-100 ">
+    <nav class="navbar pt-5 pb-3 ">
+        <form class="w-50 form-inline d-flex justify-content-between">
+            <input class="form-control" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
+        </form>
+        <p>loading...</p>
+    </nav>
+    <div class="w-100 m-0 d-flex justify-content-center align-items-center">
+        <table class="table table-striped table-hover">
+            <thead class="bg-primary">
+                <tr class="text-white">
+                    <th scope="col">Mesa</th>
+                    <th scope="col">Capacidade</th>
+                    <th scope="col">Horarios Disponiveis</th>
+                    <th scope="col"> Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let table of tables">
+                    <th scope="row">{{ table.id }}</th>
+                    <th scope="row">{{ table.capacity }}</th>
+                    <th scope="row">{{ table.status}}</th>
+                    <td><button (click)="deleteTable(table)" class="btn btn-danger me-5">delete</button>
+                        <button routerLink="/editTables/{{table.id}}" class="btn btn-warning">editar</button>
+                    </td>
 
-    <table class="table" *ngFor="let table of tables">
-        <thead>
-            <tr>
-                <th scope="col">Mesa</th>
-                <th scope="col">Lugares</th>
-                <th scope="col">Status</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>{{table.id}}</td>
-                <td>{{table.capacity}}</td>
-                <td>{{table.status}}</td>
-                <td><button (click)="deleteTable(table.id)" class="btn btn-danger">delete</button></td>
-                <td><button routerLink="/editTables/{{table.id}}" class="btn btn-warning">editar</button></td>
-            </tr>
-        </tbody>
-    </table>
-    <app-edit-tables *ngIf="componentEditVisible"></app-edit-tables>
+                </tr>
+            </tbody>
+        </table>
 
-    <div *ngIf="!componentEditVisible">
-        <button *ngIf="!componentVisible" (click)="showNewComponent()">Nova mesa</button>
-        <app-new-tables *ngIf="componentVisible"></app-new-tables>
+        <!-- <app-edit-tables *ngIf="componentEditVisible"></app-edit-tables> -->
     </div>
+
+    <div class="d-flex justify-content-end pb-5 pt-2 me-2" *ngIf="!componentEditVisible">
+        <button *ngIf="!componentVisible" (click)="showNewComponent()"
+            class="btn btn-primary d-flex justify-content-center align-items-center wl">
+            <img class="wl" src="../../../../../assets/plus.svg" alt="" srcset="" />
+        </button>
+    </div>
+</div>
+<!-- 
+
+<ng-template #formModel>
+    <div class="modal-body text-center">
+      <p>Do you want to confirm?</p>
+      <button type="button" class="btn btn-default" >Yes</button>
+      <button type="button" class="btn btn-primary" >No</button>
+    </div>
+  </ng-template> -->

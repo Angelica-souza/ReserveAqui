@@ -1,0 +1,10 @@
+.modal{
+    position: absolute !important;
+    z-index: 100;
+    background-color: aquamarine;
+    height: 100px;
+    width: 100px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}

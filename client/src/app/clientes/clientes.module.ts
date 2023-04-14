@@ -15,6 +15,7 @@ import { NewTablesComponent } from './views/components/new-tables/new-tables.com
 
 import { HomeComponent } from './views/home/home.component';
 import { EditTablesComponent } from './views/components/edit-tables/edit-tables.component';
+import { ModalFormComponent } from './views/components/modal-form/modal-form.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { EditTablesComponent } from './views/components/edit-tables/edit-tables.
     MyReservationsComponent,
     NewTablesComponent,
     HomeComponent,
-    EditTablesComponent
+    EditTablesComponent,
+    ModalFormComponent
   ],
   imports: [
     CommonModule,
@@ -39,7 +41,8 @@ import { EditTablesComponent } from './views/components/edit-tables/edit-tables.
     MyReservationsComponent,
     NewTablesComponent,
     HomeComponent,
-    EditTablesComponent
+    EditTablesComponent,
+    ModalFormComponent
   ]
 })
 export class ClientesModule { }
