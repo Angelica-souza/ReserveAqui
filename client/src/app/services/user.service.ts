@@ -32,4 +32,8 @@ export class UserService {
     const admin = localStorage.getItem('admin');
     return admin == 'true'
   }
+
+  getId(id: number){
+      return id
+  }
 }

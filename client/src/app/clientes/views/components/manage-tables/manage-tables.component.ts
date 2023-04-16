@@ -1,18 +1,14 @@
 import { Component, ElementRef, TemplateRef, ViewChild } from '@angular/core';
 
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RegisterTablesModel } from 'src/app/models/RegisterTablesModel';
 
 
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { RequesteService } from '../../../../services/requeste.service';
 import { UserService } from '../../../../services/user.service';
-
-// type TableResponse = {
-//   id: number;
-//   capacity: number;
-//   status: string;
-// }
+import { NewTablesComponent } from '../new-tables/new-tables.component';
+import { ConfirmDeleteModalComponent } from '../confirm-delete-modal/confirm-delete-modal.component';
 
 @Component({
   selector: 'app-manage-tables',
@@ -20,12 +16,10 @@ import { UserService } from '../../../../services/user.service';
   styleUrls: ['./manage-tables.component.scss']
 })
 export class ManageTablesComponent {
-  formModalRef?: BsModalRef;
   tables!: RegisterTablesModel[];
-  componentVisible = false;
-  componentEditVisible = false
+  bsModalRef!: BsModalRef<ConfirmDeleteModalComponent>;
 
-  @ViewChild('formModal') formModel!: TemplateRef<any> 
+  // @ViewChild('deleteModel') deleteModel!: TemplateRef<any> 
 
 
   constructor(
@@ -33,20 +27,15 @@ export class ManageTablesComponent {
     public requesteService: RequesteService,
     private router: Router,
     private modalService: BsModalService
-  ) { }
+  ) { 
+
+  }
 
   ngOnInit() {
     this.listTables();
-
-    this.manegeVisible();
+    this.isVisible();
   }
 
-  // ngAfterViewInit() {
-    
-  //   console.log(this.formModel)
-    
-  //   console.log(this.formModel.elementRef.nativeElement)
-  // }
 
   listTables() {
     this.requesteService.getTables().subscribe({
@@ -59,35 +48,31 @@ export class ManageTablesComponent {
     })
   }
 
-  deleteTable(tables: payload<any></any>) {
+  deleteTable(id: number) {
+    this.bsModalRef = this.modalService.show(
+      ConfirmDeleteModalComponent, 
+      { 
+        class: 'modal-sm', 
+        initialState: { 
+          tableId: id
+        } 
+      }
+    )
 
-  }
-
-  confirm(id: number){
-    this.requesteService.delTables(id).subscribe({
-      next: (value) => {
-        location.reload();
-      },
-      error(err) {
-        console.error("errors");
-      },
+    this.bsModalRef.content?.event.subscribe((value) => {
+      this.requesteService.delTables(value.tableId).subscribe((value) => {
+        this.listTables()
+      })
     })
   }
 
-  // showNewComponent() {
-  //   this.componentVisible = true;
-  // }
+  formTable() {
+     this.modalService.show(NewTablesComponent, { class: 'modal-sm' })
+  }
 
-  // showEditComponent() {
-  //   this.componentEditVisible = true;
-  // }
-
-  manegeVisible() {
+  isVisible() {
     if (!this.userService.getAdmin()) this.router.navigate(['']);
   }
 
-  // editTable() {
-  //   this.showEditComponent();
-  // }
 }
 

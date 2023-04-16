@@ -15,7 +15,8 @@ import { NewTablesComponent } from './views/components/new-tables/new-tables.com
 
 import { HomeComponent } from './views/home/home.component';
 import { EditTablesComponent } from './views/components/edit-tables/edit-tables.component';
-import { ModalFormComponent } from './views/components/modal-form/modal-form.component';
+import { BsModalService} from 'ngx-bootstrap/modal';
+import { ConfirmDeleteModalComponent } from './views/components/confirm-delete-modal/confirm-delete-modal.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { ModalFormComponent } from './views/components/modal-form/modal-form.com
     NewTablesComponent,
     HomeComponent,
     EditTablesComponent,
-    ModalFormComponent
+    ConfirmDeleteModalComponent,
   ],
   imports: [
     CommonModule,
@@ -41,8 +42,8 @@ import { ModalFormComponent } from './views/components/modal-form/modal-form.com
     MyReservationsComponent,
     NewTablesComponent,
     HomeComponent,
-    EditTablesComponent,
-    ModalFormComponent
-  ]
+    EditTablesComponent
+  ],
+  providers: [BsModalService, ManageTablesComponent]
 })
 export class ClientesModule { }

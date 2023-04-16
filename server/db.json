@@ -79,34 +79,9 @@
   ],
   "tables": [
     {
-      "capacity": "2",
-      "status": "livre",
-      "id": 1
-    },
-    {
-      "capacity": "3",
-      "status": "livre",
-      "id": 2
-    },
-    {
-      "capacity": "6",
-      "status": "livre",
-      "id": 3
-    },
-    {
-      "capacity": "4",
-      "status": "livre",
-      "id": 4
-    },
-    {
-      "capacity": "8",
-      "status": "livre",
-      "id": 5
-    },
-    {
       "capacity": "5",
       "status": "livre",
-      "id": 6
+      "id": 1
     }
   ]
 }

@@ -22,9 +22,10 @@ const routes: Routes = [
       { path: '', component: DescriptionComponent },
       { path: 'reserve', component: ReserveComponent },
       { path: 'myReservations', component: MyReservationsComponent },
-      { path: 'manegeTables', component: ManageTablesComponent },
-      { path: 'newTablesModal', component: NewTablesComponent },
-      { path: 'editTables/:id', component: EditTablesComponent }
+      {
+        path: 'manegeTables', component: ManageTablesComponent
+      },
+      { path: 'newTablesModal', component: NewTablesComponent }
     ],
     canActivate: [AuthGuard]
   },
@@ -35,7 +36,7 @@ const routes: Routes = [
     path: 'userControl',
     component: UserControlComponent,
     children: [
-      { path: '', component: LoginComponent},
+      { path: '', component: LoginComponent },
       { path: 'register', component: RegisterComponent }
     ]
   }
