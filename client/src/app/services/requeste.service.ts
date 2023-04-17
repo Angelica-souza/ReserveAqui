@@ -37,4 +37,9 @@ export class RequesteService {
   editTable(id: number, payload: any){
     return this.httpCliente.put<any>(`${this.apiUrl}/tables/${id}`, payload)
   }
+
+  getTableById(id: number){
+    return this.httpCliente.get<any>(`${this.apiUrl}/tables/${id}`)
+  }
+
 }

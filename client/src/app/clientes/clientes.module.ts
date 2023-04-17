@@ -17,6 +17,7 @@ import { HomeComponent } from './views/home/home.component';
 import { EditTablesComponent } from './views/components/edit-tables/edit-tables.component';
 import { BsModalService} from 'ngx-bootstrap/modal';
 import { ConfirmDeleteModalComponent } from './views/components/confirm-delete-modal/confirm-delete-modal.component';
+import { FormModalComponent } from './views/components/form-modal/form-modal.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ConfirmDeleteModalComponent } from './views/components/confirm-delete-m
     HomeComponent,
     EditTablesComponent,
     ConfirmDeleteModalComponent,
+    FormModalComponent,
   ],
   imports: [
     CommonModule,
@@ -42,7 +44,8 @@ import { ConfirmDeleteModalComponent } from './views/components/confirm-delete-m
     MyReservationsComponent,
     NewTablesComponent,
     HomeComponent,
-    EditTablesComponent
+    EditTablesComponent,
+    FormModalComponent
   ],
   providers: [BsModalService, ManageTablesComponent]
 })
