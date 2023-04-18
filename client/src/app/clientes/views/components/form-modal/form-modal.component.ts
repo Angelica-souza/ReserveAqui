@@ -29,7 +29,7 @@ export class FormModalComponent {
     this.formTable = this.formBuilder.group(
       {
         capacity: ['', [Validators.required]],
-        status: ['ocupado'],
+        status: ['livre'],
         description: ['', [Validators.required]]
       }
     )
@@ -55,8 +55,6 @@ export class FormModalComponent {
   
   newTable() {
     let dataTables = this.formTable.getRawValue() as RegisterTablesModel
-
-    console.log(dataTables)
 
     this.event.emit({ dataTables });
     this.modalService.hide()

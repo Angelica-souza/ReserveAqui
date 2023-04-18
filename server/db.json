@@ -79,22 +79,10 @@
   ],
   "tables": [
     {
-      "capacity": "5",
-      "status": "livre",
-      "description": "t",
-      "id": 4
-    },
-    {
-      "capacity": "8",
+      "capacity": "9",
       "status": "livre",
       "description": "centro",
       "id": 5
-    },
-    {
-      "capacity": "4",
-      "status": "livre",
-      "description": "f",
-      "id": 6
     },
     {
       "capacity": "5",
@@ -103,10 +91,22 @@
       "id": 7
     },
     {
-      "capacity": "3",
+      "capacity": "6",
       "status": "ocupado",
-      "description": "teste",
+      "description": "centro",
       "id": 8
+    },
+    {
+      "capacity": "9",
+      "status": "livre",
+      "description": "8",
+      "id": 9
+    },
+    {
+      "capacity": "8",
+      "status": "livre",
+      "description": "teste",
+      "id": 10
     }
   ]
 }

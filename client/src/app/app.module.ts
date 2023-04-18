@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ClientesModule } from "./clientes/clientes.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserModule } from './user/user.module';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { UserModule } from './user/user.module';
     AppRoutingModule,
     ClientesModule,
     UserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    TooltipModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

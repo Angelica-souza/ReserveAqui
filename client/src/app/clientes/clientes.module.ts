@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from '../app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BsModalService} from 'ngx-bootstrap/modal';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 import { ManageTablesComponent } from './views/components/manage-tables/manage-tables.component';
 import { DescriptionComponent } from './views/components/description/description.component';
@@ -13,6 +14,7 @@ import { MyReservationsComponent } from './views/components/my-reservations/my-r
 import { HomeComponent } from './views/home/home.component';
 import { ConfirmDeleteModalComponent } from './views/components/confirm-delete-modal/confirm-delete-modal.component';
 import { FormModalComponent } from './views/components/form-modal/form-modal.component';
+import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { FormModalComponent } from './views/components/form-modal/form-modal.com
     CommonModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BsDatepickerModule.forRoot(),
+    TimepickerModule.forRoot()
   ],
   exports:[
     ManageTablesComponent,

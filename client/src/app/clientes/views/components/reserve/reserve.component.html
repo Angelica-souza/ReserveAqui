@@ -1,33 +1,38 @@
 <div class="container">
-  <form>
-    <div class="row">
+  <h3 class="text-center">Reserva</h3>
+  <div class="row p-2">
+    <form class="d-flex flex-column justify-content-center" [formGroup]="reserveTable" (ngSubmit)="onConfimReserva()">
       <div class="col">
         <label>Mesa de quantos lugares?</label>
         <select class="form-select" aria-label="Default select example">
-          <option selected>Selecione</option>
-          <option value="1">
+          <option selected>Selecione...</option>
+          <option *ngFor="let table of tables" value="1">
+            {{ table.capacity }}
           </option>
         </select>
       </div>
 
-      <!-- <div class="col">
-        <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
+      <div class="row w-100 bg-info">
+        <div class="col mt-2">
+          <label>Que dia?</label>
           <input
             type="text"
-            placeholder="Datepicker"
             class="form-control"
+            placeholder="Selecione uma data"
             bsDatepicker
+            [bsConfig]="bsConfig"
+            [bsValue]="hoje"
           />
         </div>
-        <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
-          <input
-            type="text"
-            placeholder="Daterangepicker"
-            class="form-control"
-            bsDaterangepicker
-          />
-        </div> -->
-      <!-- </div> -->
-    </div>
-  </form>
+        
+        <div class="col w-100">
+          <label for="horas_res" >Em qual horário? </label>
+          <input class="bg-danger" type="time" value="18:00"  min="18:00" max="00:00"> 
+        </div>
+
+        <button class="btn btn-primary">Reservar</button>
+      </div>
+
+    </form>
+  </div>
 </div>
