@@ -10,8 +10,6 @@ import { DescriptionComponent } from './clientes/views/components/description/de
 import { ReserveComponent } from './clientes/views/components/reserve/reserve.component';
 import { MyReservationsComponent } from './clientes/views/components/my-reservations/my-reservations.component';
 import { ManageTablesComponent } from './clientes/views/components/manage-tables/manage-tables.component';
-import { NewTablesComponent } from './clientes/views/components/new-tables/new-tables.component';
-import { EditTablesComponent } from './clientes/views/components/edit-tables/edit-tables.component';
 import { UserControlComponent } from './user/user-control/user-control.component';
 
 const routes: Routes = [
@@ -20,12 +18,10 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       { path: '', component: DescriptionComponent },
-      { path: 'reserve', component: ReserveComponent },
       { path: 'myReservations', component: MyReservationsComponent },
       {
         path: 'manegeTables', component: ManageTablesComponent
-      },
-      { path: 'newTablesModal', component: NewTablesComponent }
+      }
     ],
     canActivate: [AuthGuard]
   },
@@ -46,4 +42,7 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+
+export class AppRoutingModule {
+  
+}

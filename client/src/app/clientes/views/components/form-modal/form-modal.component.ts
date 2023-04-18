@@ -2,7 +2,7 @@ import { Component, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { RegisterTablesModel } from 'src/app/models/RegisterTablesModel';
-import { RequesteService } from 'src/app/services/requeste.service';
+import { RequestService } from '../../../../services/request.service';
 
 @Component({
   selector: 'app-form-modal',
@@ -20,7 +20,7 @@ export class FormModalComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    public requesteService: RequesteService,
+    public requestService: RequestService,
     private modalService: BsModalService
   ) { }
 
@@ -29,7 +29,7 @@ export class FormModalComponent {
     this.formTable = this.formBuilder.group(
       {
         capacity: ['', [Validators.required]],
-        status: ['livre'],
+        status: ['ocupado'],
         description: ['', [Validators.required]]
       }
     )
@@ -37,9 +37,8 @@ export class FormModalComponent {
   ngAfterViewInit() {
     if (!!this.tableId) {
 
-      this.requesteService.getTableById(this.tableId).subscribe({
+      this.requestService.getTableById(this.tableId).subscribe({
         next: (value) => {
-          console.log(value)
           this.formTable.patchValue({
             ...value
           })

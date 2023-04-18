@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { RequesteService } from '../../services/requeste.service';
+import { RequestService } from '../../services/request.service';
 import { UserService } from '../../services/user.service';
 
 import { RegisterModel } from '../../models/RegisterModel';
@@ -21,7 +21,7 @@ export class RegisterComponent {
   resp!: string;
 
   constructor(private formBuilder: FormBuilder, public router: Router,
-    public requesteService: RequesteService, public userService: UserService) { }
+    public requestService: RequestService, public userService: UserService) { }
 
 
   ngOnInit() {
@@ -46,7 +46,7 @@ export class RegisterComponent {
       return;
     }
 
-    this.requesteService.signupUser(dadosRegister).subscribe({
+    this.requestService.signupUser(dadosRegister).subscribe({
       next: (value) => {
         window.localStorage.setItem('name', value.user.name)
         window.localStorage.setItem('token', value)

@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { RegisterTablesModel } from '../models/RegisterTablesModel';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class RequesteService {
+export class RequestService {
 
   private readonly apiUrl = environment.apiUrl;
   
@@ -41,5 +40,4 @@ export class RequesteService {
   getTableById(id: number){
     return this.httpCliente.get<any>(`${this.apiUrl}/tables/${id}`)
   }
-
 }

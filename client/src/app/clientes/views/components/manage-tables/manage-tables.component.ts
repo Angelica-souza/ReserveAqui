@@ -1,11 +1,11 @@
 import { Component, ElementRef, TemplateRef, ViewChild } from '@angular/core';
 
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { RegisterTablesModel } from 'src/app/models/RegisterTablesModel';
 
 
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { RequesteService } from '../../../../services/requeste.service';
+import { RequestService } from '../../../../services/request.service';
 import { UserService } from '../../../../services/user.service';
 import { ConfirmDeleteModalComponent } from '../confirm-delete-modal/confirm-delete-modal.component';
 import { FormModalComponent } from '../form-modal/form-modal.component';
@@ -25,11 +25,11 @@ export class ManageTablesComponent {
 
   constructor(
     public userService: UserService,
-    public requesteService: RequesteService,
+    public requestService: RequestService,
     private router: Router,
-    private modalService: BsModalService,
-    private route: ActivatedRoute
+    private modalService: BsModalService
   ) { }
+
   ngOnInit() {
     this.isVisible();
     this.listTables();
@@ -40,7 +40,7 @@ export class ManageTablesComponent {
   }
 
   listTables() {
-    this.requesteService.getTables().subscribe({
+    this.requestService.getTables().subscribe({
       next: (value) => {
         this.tables = value
       },
@@ -66,7 +66,7 @@ export class ManageTablesComponent {
 
   deleteTable() {
     this.deleteModal.content?.event.subscribe((value) => {
-      this.requesteService.delTables(value.tableId).subscribe((value) => {
+      this.requestService.delTables(value.tableId).subscribe((value) => {
         this.listTables()
       })
     })
@@ -76,7 +76,7 @@ export class ManageTablesComponent {
     this.formModal = this.modalService.show(FormModalComponent, { class: 'modal-sm' })
 
     this.formModal.content?.event.subscribe((requeste) => {
-      this.requesteService.setTables(requeste.dataTables).subscribe({
+      this.requestService.setTables(requeste.dataTables).subscribe({
         next: (value) => {
           this.listTables()
         },
@@ -96,7 +96,7 @@ export class ManageTablesComponent {
     })
 
     this.formModal.content?.event.subscribe((requeste) => {
-        this.requesteService.editTable(id, requeste.dataTables).subscribe(() => { 
+        this.requestService.editTable(id, requeste.dataTables).subscribe(() => { 
             this.listTables()
         })
     })

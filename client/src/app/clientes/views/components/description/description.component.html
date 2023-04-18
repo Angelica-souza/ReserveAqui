@@ -1,1 +1,17 @@
-<p>description works!</p>
+<div class="container h-100">
+  <div
+    class="h-100 d-flex flex-column justify-content-between align-items-center"
+  >
+    <div class="mt-1 mt-5">
+      <h1>Bem vind@ {{ user }} ao Reserve Aqui</h1>
+    </div>
+    <div class="w-50 text-center h-75">
+      <p class="fa-10x">
+        Faça sua reserva sem sair de casa, mais conforto e praticidade. Com o
+        reserva aqui você consegue guarda sua mesa e ela sera preparada
+        especialmente para você. Gostou? Então...
+      </p>
+      <button class="btn btn-primary w-50 mt-5" (click)="onReserve()">Faça sua reserva</button>
+    </div>
+  </div>
+</div>

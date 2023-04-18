@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { LoginModel } from '../../models/LoginModel';
-import { RequesteService } from '../../services/requeste.service';
+import { RequestService } from '../../services/request.service';
 import { UserService } from '../../services/user.service';
 
 import { ActivatedRoute, Router } from '@angular/router';
@@ -31,7 +31,7 @@ export class LoginComponent {
   message!: string;
 
   constructor(private formBuilder: FormBuilder, private router: Router,
-    public RequesteService: RequesteService, public userService: UserService, private activatedRoute: ActivatedRoute) { }
+    public RequestService: RequestService, public userService: UserService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group(
@@ -54,7 +54,7 @@ export class LoginComponent {
       return;
     }
 
-    this.RequesteService.signinUser(DadosLogin).subscribe({
+    this.RequestService.signinUser(DadosLogin).subscribe({
       next: (value: LoginResponse) => {
         window.localStorage.setItem('token', value.accessToken)
         window.localStorage.setItem('name', value.user.name)

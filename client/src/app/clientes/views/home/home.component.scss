@@ -1,10 +1,12 @@
 :host {
     display: block;
     height: 100vh;
+    margin: 0;
 }
 
 .container{
     background-color: #705D56;
+    color: #fff;
 }
 
 .logo{
@@ -13,7 +15,7 @@
 
 .avatar{
     width: 30px;
-    height: 30;
+    height: 30px;
 }
 
 .hover:hover{
@@ -24,4 +26,8 @@
 .border-hover{
     cursor: pointer;
     color: 1px solid #ffa500;
+}
+
+.nav-item a{
+    color: #fff;
 }
