@@ -26,7 +26,6 @@ type LoginResponse = {
 export class LoginComponent {
 
   loginForm!: FormGroup;
-  isPasswordValid!: boolean;
   passwordError!: string;
   message!: string;
 

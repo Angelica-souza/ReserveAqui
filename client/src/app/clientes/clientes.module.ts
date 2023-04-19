@@ -12,9 +12,10 @@ import { DescriptionComponent } from './views/components/description/description
 import { ReserveComponent } from './views/components/reserve/reserve.component';
 import { MyReservationsComponent } from './views/components/my-reservations/my-reservations.component';
 import { HomeComponent } from './views/home/home.component';
-import { ConfirmDeleteModalComponent } from './views/components/confirm-delete-modal/confirm-delete-modal.component';
-import { FormModalComponent } from './views/components/form-modal/form-modal.component';
+import { ConfirmDeleteModalComponent } from './components/confirm-delete-modal/confirm-delete-modal.component';
+import { FormModalComponent } from './components/form-modal/form-modal.component';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
+import { ConfirmReservationComponent } from './components/confirm-reservation/confirm-reservation.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { TimepickerModule } from 'ngx-bootstrap/timepicker';
     HomeComponent,
     ConfirmDeleteModalComponent,
     FormModalComponent,
+    ConfirmReservationComponent,
   ],
   imports: [
     CommonModule,

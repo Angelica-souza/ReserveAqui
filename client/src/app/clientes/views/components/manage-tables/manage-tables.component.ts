@@ -7,8 +7,8 @@ import { RegisterTablesModel } from 'src/app/models/RegisterTablesModel';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { RequestService } from '../../../../services/request.service';
 import { UserService } from '../../../../services/user.service';
-import { ConfirmDeleteModalComponent } from '../confirm-delete-modal/confirm-delete-modal.component';
-import { FormModalComponent } from '../form-modal/form-modal.component';
+import { ConfirmDeleteModalComponent } from '../../../components/confirm-delete-modal/confirm-delete-modal.component';
+import { FormModalComponent } from '../../../components/form-modal/form-modal.component';
 
 @Component({
   selector: 'app-manage-tables',
@@ -74,7 +74,6 @@ export class ManageTablesComponent {
 
   formTable() {
     this.formModal = this.modalService.show(FormModalComponent, { class: 'modal-sm' })
-
     this.formModal.content?.event.subscribe((requeste) => {
       this.requestService.setTables(requeste.dataTables).subscribe({
         next: (value) => {

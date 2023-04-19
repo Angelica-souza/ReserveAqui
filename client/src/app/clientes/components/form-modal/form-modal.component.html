@@ -3,6 +3,10 @@
         <form [formGroup]="formTable" (submit)="newTable()">
             <legend class=" text-center p-2">{{title}}</legend>
             <div class="mb-3">
+                <label class="form-label">Número da mesa</label>
+                <input type="text" class="form-control" formControlName="num" placeholder="Digite a quantidade...">
+            </div>
+            <div class="mb-3">
                 <label class="form-label">Quantos lugares?</label>
                 <input type="text" class="form-control" formControlName="capacity" placeholder="Digite a quantidade...">
             </div>

@@ -2,7 +2,7 @@ import { Component, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { RegisterTablesModel } from 'src/app/models/RegisterTablesModel';
-import { RequestService } from '../../../../services/request.service';
+import { RequestService } from '../../../services/request.service';
 
 @Component({
   selector: 'app-form-modal',
@@ -14,8 +14,8 @@ export class FormModalComponent {
   formTable!: FormGroup;
   title: string = "Cadastro"
   tableId!: number
-  tableElement: any = null
-  loadingData: boolean = false
+  tables!: RegisterTablesModel[]
+
   event: EventEmitter<any> = new EventEmitter();
 
   constructor(
@@ -28,7 +28,8 @@ export class FormModalComponent {
 
     this.formTable = this.formBuilder.group(
       {
-        capacity: ['', [Validators.required]],
+        capacity: [null, [Validators.required]],
+        num:[null, [Validators.required]],
         status: ['livre'],
         description: ['', [Validators.required]]
       }

@@ -16,6 +16,6 @@ export class DescriptionComponent {
   ){}
 
   onReserve(){
-    this.modalService.show(ReserveComponent, { class: 'modal-sm'})
+    this.modalService.show(ReserveComponent, { class: 'modal-lg'})
   }
 }

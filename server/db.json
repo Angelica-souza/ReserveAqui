@@ -79,34 +79,39 @@
   ],
   "tables": [
     {
-      "capacity": "9",
+      "capacity": "6",
+      "num": "2",
       "status": "livre",
-      "description": "centro",
-      "id": 5
+      "description": "teste",
+      "id": 2
+    },
+    {
+      "capacity": "4",
+      "num": "4",
+      "status": "livre",
+      "description": "teste",
+      "id": 4
+    },
+    {
+      "capacity": 6,
+      "num": "4",
+      "status": "ocupado",
+      "description": "teste",
+      "id": 4
     },
     {
       "capacity": "5",
-      "status": "livre",
-      "description": "ok",
-      "id": 7
-    },
-    {
-      "capacity": "6",
+      "num": "4",
       "status": "ocupado",
-      "description": "centro",
-      "id": 8
+      "description": "teste",
+      "id": 4
     },
     {
-      "capacity": "9",
-      "status": "livre",
-      "description": "8",
-      "id": 9
-    },
-    {
-      "capacity": "8",
+      "capacity": "3",
+      "num": "5",
       "status": "livre",
       "description": "teste",
-      "id": 10
+      "id": 5
     }
   ]
 }

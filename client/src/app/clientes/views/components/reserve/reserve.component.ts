@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { RegisterTablesModel } from 'src/app/models/RegisterTablesModel';
 import { RequestService } from '../../../../services/request.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { ConfirmReservationComponent } from 'src/app/clientes/components/confirm-reservation/confirm-reservation.component';
 
 @Component({
   selector: 'app-reserve',
@@ -10,26 +12,24 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./reserve.component.scss']
 })
 export class ReserveComponent {
-  isMeridian = false;
-  readonly = true;
-  myTime = new Date()
+  reserveTable!: FormGroup;
+  tables!: RegisterTablesModel[];
+  selectedTable!: RegisterTablesModel;
 
+  //Config de date e time
   hoje: Date = new Date();
-
   bsConfig = {
     dateInputFormat: 'DD/MM/YYYY',
     minDate: new Date(new Date().getFullYear(), new Date().getMonth(), 1),
     maxDate: new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0)
   };
 
-  tables!: RegisterTablesModel[];
-  reserveTable!: FormGroup;
-  capacity!: number[];
 
   constructor(
     private requestService: RequestService,
-    private formBuilder: FormBuilder
-    ) { }
+    private formBuilder: FormBuilder,
+    private modalService: BsModalService
+  ) { }
 
   ngOnInit() {
     this.listOfSeatsTable()
@@ -37,7 +37,7 @@ export class ReserveComponent {
     this.reserveTable = this.formBuilder.group(
       {
         capacity: ['', [Validators.required]],
-        date: [''],
+        date: ['', [Validators.required]],
         time: ['', [Validators.required]]
       }
     )
@@ -45,11 +45,9 @@ export class ReserveComponent {
   }
 
   listOfSeatsTable() {
-    //Usar a função find para pegar o primeiro valor que tenha a quatidade de lugares pedida
-
     this.requestService.getTables().subscribe({
       next: (value: RegisterTablesModel[]) => {
-        console.log(this.tables = this.filterTablesCapacityStatus(value));
+        this.tables = this.filterTablesCapacityStatus(value);
       }
     })
   }
@@ -63,8 +61,42 @@ export class ReserveComponent {
     }, [])
   }
 
-  onConfimReserva() {
-    console.log("oi")
+  openConfirm() {
+    this.modalService.show(
+      ConfirmReservationComponent,
+      {
+        class: 'modal-sm',
+        // initialState: {
+        //   tableId: id
+        // }
+      }
+    );
   }
 
+  onSelectTable() {
+    //verificar na tabela de reservas se na data informada tem mesa com a quantidade pedida de lugares
+    this.requestService.getTables().subscribe({
+      next: (value: RegisterTablesModel[]) => {
+        const selectedTable = this.selectTableCapacityStatus(value);
+        if (selectedTable) {
+          this.selectedTable = selectedTable;
+        } else {
+          // tratamento para o caso de não haver uma mesa selecionada
+        }
+      }
+    })
+
+    this.openConfirm()
+  }
+
+  selectTableCapacityStatus(value: RegisterTablesModel[]) {
+    let dataReserve = this.reserveTable.getRawValue() as RegisterTablesModel
+
+    return value.find(item => item.capacity === dataReserve.capacity && item.status !== 'ocupado')
+  }
+
+
+  onCancel() {
+    this.modalService.hide();
+  }
 }
