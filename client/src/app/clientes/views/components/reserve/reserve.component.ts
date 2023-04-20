@@ -4,7 +4,13 @@ import { RegisterTablesModel } from 'src/app/models/RegisterTablesModel';
 import { RequestService } from '../../../../services/request.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { DateTime } from 'luxon'
+
 import { ConfirmReservationComponent } from 'src/app/clientes/components/confirm-reservation/confirm-reservation.component';
+import { ReservationModel } from 'src/app/models/ReservationModel';
+import { Data } from '@angular/router';
+import { TableReservesModel } from 'src/app/models/TableReservesModel';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-reserve',
@@ -13,8 +19,10 @@ import { ConfirmReservationComponent } from 'src/app/clientes/components/confirm
 })
 export class ReserveComponent {
   reserveTable!: FormGroup;
-  tables!: RegisterTablesModel[];
+  filterCapacity!: RegisterTablesModel[];
+  table!: RegisterTablesModel[]
   selectedTable!: RegisterTablesModel;
+  message!: string;
 
   //Config de date e time
   hoje: Date = new Date();
@@ -28,7 +36,8 @@ export class ReserveComponent {
   constructor(
     private requestService: RequestService,
     private formBuilder: FormBuilder,
-    private modalService: BsModalService
+    private modalService: BsModalService,
+    private userService: UserService
   ) { }
 
   ngOnInit() {
@@ -37,8 +46,7 @@ export class ReserveComponent {
     this.reserveTable = this.formBuilder.group(
       {
         capacity: ['', [Validators.required]],
-        date: ['', [Validators.required]],
-        time: ['', [Validators.required]]
+        date: ['', [Validators.required]]
       }
     )
 
@@ -47,52 +55,74 @@ export class ReserveComponent {
   listOfSeatsTable() {
     this.requestService.getTables().subscribe({
       next: (value: RegisterTablesModel[]) => {
-        this.tables = this.filterTablesCapacityStatus(value);
+        this.filterCapacity = this.filterTablesCapacityStatus(value);
       }
     })
   }
 
   filterTablesCapacityStatus(value: RegisterTablesModel[]) {
     return value.reduce<RegisterTablesModel[]>((acc, current) => {
-      if (current.status !== "ocupado" && !acc.some((item) => item.capacity === current.capacity)) {
+      if (!acc.some((item) => item.capacity === current.capacity)) {
         acc.push(current);
       }
       return acc;
     }, [])
   }
 
-  openConfirm() {
-    this.modalService.show(
+  onSelectTable() {
+    this.message = '';
+
+    const { date, capacity } = this.reserveTable.getRawValue() as ReservationModel
+
+    const monthISO = `${date.getMonth() + 1}`.padStart(2, '0')
+    const fullDateISO = `${date.getFullYear()}-${monthISO}-${date.getDate()}`
+    
+    this.requestService.getTablesWithReserves(capacity).subscribe((values) => {
+      const tableId = this.selectAvailableTableId(fullDateISO, values);
+
+      if (tableId === -1) {
+        this.message = `Não temos mais mesas de ${capacity} lugares para este dia`
+        return
+      }
+
+      this.openConfirm(tableId, fullDateISO)
+    })
+
+  }
+
+  selectAvailableTableId(date: string, tables: TableReservesModel[]) {
+    const selectedDate = DateTime.fromISO(date)
+
+    for (const table of tables) {
+      const isUnavailable = table.reserves.some((reserve) => {
+        const reservedDate = DateTime.fromISO(reserve.date)
+        return selectedDate.equals(reservedDate)
+      })
+
+      if (isUnavailable) continue
+      return table.id
+    }
+
+    return -1
+  }
+
+  openConfirm(tableId: number, date: string) {
+    const userId = this.userService.getIdUser()
+
+    const modalRef = this.modalService.show(
       ConfirmReservationComponent,
       {
         class: 'modal-sm',
-        // initialState: {
-        //   tableId: id
-        // }
-      }
-    );
-  }
-
-  onSelectTable() {
-    //verificar na tabela de reservas se na data informada tem mesa com a quantidade pedida de lugares
-    this.requestService.getTables().subscribe({
-      next: (value: RegisterTablesModel[]) => {
-        const selectedTable = this.selectTableCapacityStatus(value);
-        if (selectedTable) {
-          this.selectedTable = selectedTable;
-        } else {
-          // tratamento para o caso de não haver uma mesa selecionada
+        initialState: {
+          tableId: tableId,
+          date: date,
+          userId
         }
       }
-    })
+    );
 
-    this.openConfirm()
-  }
-
-  selectTableCapacityStatus(value: RegisterTablesModel[]) {
-    let dataReserve = this.reserveTable.getRawValue() as RegisterTablesModel
-
-    return value.find(item => item.capacity === dataReserve.capacity && item.status !== 'ocupado')
+    modalRef.content?.closeEvent
+      .subscribe(() => this.modalService.hide(modalRef.id))
   }
 
 

@@ -51,6 +51,7 @@ export class RegisterComponent {
         window.localStorage.setItem('name', value.user.name)
         window.localStorage.setItem('token', value)
         window.localStorage.setItem('admin', String(value.user.admin))
+        window.localStorage.setItem('id', value.id)
 
         this.router.navigate([''])
       },

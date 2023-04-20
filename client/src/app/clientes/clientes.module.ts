@@ -16,6 +16,7 @@ import { ConfirmDeleteModalComponent } from './components/confirm-delete-modal/c
 import { FormModalComponent } from './components/form-modal/form-modal.component';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 import { ConfirmReservationComponent } from './components/confirm-reservation/confirm-reservation.component';
+import { FormatISODate } from './format-iso-date.pipe'
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ConfirmReservationComponent } from './components/confirm-reservation/co
     ConfirmDeleteModalComponent,
     FormModalComponent,
     ConfirmReservationComponent,
+    FormatISODate
   ],
   imports: [
     CommonModule,

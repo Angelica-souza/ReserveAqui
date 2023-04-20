@@ -3,12 +3,6 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../../../services/user.service'
 
-// type LoginResponse = {
-//     email: string;
-//     id: number;
-//     name: string;
-//   }
-// }
 
 @Component({
   selector: 'app-home',

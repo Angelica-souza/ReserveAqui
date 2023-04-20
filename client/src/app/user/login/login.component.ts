@@ -5,7 +5,7 @@ import { LoginModel } from '../../models/LoginModel';
 import { RequestService } from '../../services/request.service';
 import { UserService } from '../../services/user.service';
 
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 
 type LoginResponse = {
@@ -29,8 +29,12 @@ export class LoginComponent {
   passwordError!: string;
   message!: string;
 
-  constructor(private formBuilder: FormBuilder, private router: Router,
-    public RequestService: RequestService, public userService: UserService, private activatedRoute: ActivatedRoute) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    public RequestService: RequestService,
+    public userService: UserService,
+  ) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group(
@@ -58,7 +62,7 @@ export class LoginComponent {
         window.localStorage.setItem('token', value.accessToken)
         window.localStorage.setItem('name', value.user.name)
         window.localStorage.setItem('admin', String(value.user.admin))
-        
+
         this.router.navigate([''])
       },
       error: (error: HttpErrorResponse) => {

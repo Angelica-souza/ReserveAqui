@@ -81,37 +81,60 @@
     {
       "capacity": "6",
       "num": "2",
-      "status": "livre",
       "description": "teste",
-      "id": 2
+      "id": 1
     },
     {
       "capacity": "4",
       "num": "4",
-      "status": "livre",
-      "description": "teste",
-      "id": 4
+      "description": "na direita",
+      "id": 2
     },
     {
-      "capacity": 6,
+      "capacity": "6",
       "num": "4",
-      "status": "ocupado",
-      "description": "teste",
-      "id": 4
+      "description": "no centro",
+      "id": 3
     },
     {
       "capacity": "5",
       "num": "4",
-      "status": "ocupado",
-      "description": "teste",
+      "description": "na esquerda",
       "id": 4
     },
     {
       "capacity": "3",
       "num": "5",
-      "status": "livre",
-      "description": "teste",
+      "description": "na esquerda",
       "id": 5
+    },
+    {
+      "id": 6
+    }
+  ],
+  "reserves": [
+    {
+      "userId": 1,
+      "tableId": 4,
+      "date": "2023-04-20",
+      "id": 8
+    },
+    {
+      "tableId": 4,
+      "date": "2023-04-21",
+      "id": 9
+    },
+    {
+      "tableId": 4,
+      "date": "2023-04-28",
+      "userId": 1,
+      "id": 10
+    },
+    {
+      "tableId": 4,
+      "date": "2023-04-19",
+      "userId": 1,
+      "id": 11
     }
   ]
 }

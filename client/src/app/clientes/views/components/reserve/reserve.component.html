@@ -3,24 +3,15 @@
     <div class="border-bottom border-1">
       <h3 class="modal-title pull-left">Reserva</h3>
     </div>
+    <div *ngIf="message">
+      <p style="color:red">{{message}}</p>
+    </div>
     <div class="modal-body mt-3 p-0">
-      <form
-        class="d-flex flex-column justify-content-center"
-        [formGroup]="reserveTable"
-        (submit)="onSelectTable()"
-      >
+      <form class="d-flex flex-column justify-content-center" [formGroup]="reserveTable" (submit)="onSelectTable()">
         <div class="col">
           <label>Mesa de quantos lugares?</label>
-          <select
-            formControlName="capacity"
-            class="form-select"
-            aria-label="Default select example"
-          >
-            <option
-              *ngFor="let table of tables"
-              value="{{ table.capacity }}"
-              selected
-            >
+          <select formControlName="capacity" class="form-select" aria-label="Default select example">
+            <option *ngFor="let table of filterCapacity" value="{{ table.capacity }}" selected>
               {{ table.capacity }}
             </option>
           </select>
@@ -28,43 +19,15 @@
 
         <div class="col mt-2">
           <label>Para que dia?</label>
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Selecione uma data"
-            formControlName="date"
-            bsDatepicker
-            [bsConfig]="bsConfig"
-            [bsValue]="hoje"
-          />
-        </div>
-        <div class="col mt-2">
-          <label for="horas_res">Em qual horário? </label>
-          <div class="cs-form">
-            <input
-              type="time"
-              type="time"
-              value="18:00"
-              min="18:00"
-              max="00:00"
-              formControlName="time"
-              class="form-control"
-              value="10:05 AM"
-            />
-          </div>
+          <input type="text" class="form-control" placeholder="Selecione uma data" formControlName="date" bsDatepicker
+            [bsConfig]="bsConfig" [bsValue]="hoje" />
         </div>
 
         <div class="w-100 mt-3">
-          <button
-            class="btn btn-primary w-100"
-            [disabled]="!reserveTable.valid"
-          >
+          <button class="btn btn-primary w-100" [disabled]="!reserveTable.valid">
             Reservar
           </button>
-          <button
-            class="btn btn-outline-danger w-100 mt-3"
-            (click)="onCancel()"
-          >
+          <button class="btn btn-outline-danger w-100 mt-3" (click)="onCancel()">
             Cancelar
           </button>
         </div>

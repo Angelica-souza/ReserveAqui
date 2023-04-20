@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
+import { TableReservesModel } from '../models/TableReservesModel';
+import { ReserveTableModel } from 'src/app/models/ReserveTableModel';
+import { environment } from 'src/environments/environment';
+
 
 
 @Injectable({
@@ -22,15 +25,37 @@ export class RequestService {
   }
 
   getTables(){
-    return  this.httpCliente.get<any>(`${this.apiUrl}/tables`)
+    return this.httpCliente.get<any>(`${this.apiUrl}/tables`)
+  }
+
+  getTablesWithReserves(capacity: number){
+    return this.httpCliente.get<TableReservesModel[]>(`${this.apiUrl}/tables?_embed=reserves&capacity=${capacity}`)
+  }
+
+  getReservesWithTableByUser(userId: number){
+    return this.httpCliente.get<ReserveTableModel[]>(`${this.apiUrl}/reserves`, {
+      params: {
+        '_expand': 'table',
+        userId
+      }
+    })
   }
 
   setTables(payload: any){
     return  this.httpCliente.post<any>(`${this.apiUrl}/tables`, payload)
   }
 
+
+  setReserve(payload: any){
+    return  this.httpCliente.post<any>(`${this.apiUrl}/reserves`, payload)
+  }
+
   delTables(id: number){
     return this.httpCliente.delete<any>(`${this.apiUrl}/tables/${id}`)
+  }
+  
+  delReserve(id: number){
+    return this.httpCliente.delete<any>(`${this.apiUrl}/reserves/${id}`)
   }
 
   editTable(id: number, payload: any){
@@ -40,4 +65,5 @@ export class RequestService {
   getTableById(id: number){
     return this.httpCliente.get<any>(`${this.apiUrl}/tables/${id}`)
   }
+
 }

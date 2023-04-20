@@ -1,5 +1,15 @@
 <div class="modal-body text-center">
-    <p>Confirma reserva?</p>
-    <button type="button" class="btn btn-default" >Yes</button>
-    <button type="button" class="btn btn-primary" >No</button>
+    <p>Sua mesa foi separada.</p>
+    <!-- <ul class="list-group mb-3">
+        <li class="list-group-item">Mesa: {{ selectedTable.num}}</li>
+        <li class="list-group-item">Com: {{ selectedTable.capacity }} lugares</li>
+        <li class="list-group-item">Localizada {{selectedTable.description}} do restaurante </li>
+        <li class="list-group-item">Para o dia 18/19/2023 as 18:00hrs</li>
+    </ul> -->
+
+    <span>Posso confirmar?</span>
+    <div class="mt-3">
+        <button type="button" class="btn btn-default" (click)="onConfirm()">Sim</button>
+        <button type="button" class="btn btn-primary" (click)="onCancel()">Não</button>
+    </div>
 </div>

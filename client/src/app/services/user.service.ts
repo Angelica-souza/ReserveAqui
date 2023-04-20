@@ -20,6 +20,11 @@ export class UserService {
     return name
   }
 
+  getIdUser(){
+    const userId = localStorage.getItem('id') as string
+    return +userId
+  }
+
   getToken(){
     const token = window.localStorage.getItem('token')
 
@@ -33,7 +38,4 @@ export class UserService {
     return admin == 'true'
   }
 
-  getId(id: number){
-      return id
-  }
 }
