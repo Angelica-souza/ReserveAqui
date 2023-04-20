@@ -23,6 +23,8 @@ export class HomeComponent {
   signOut() {
     localStorage.removeItem('token');
     localStorage.removeItem('name');
+    localStorage.removeItem('admin');
+    localStorage.removeItem('id')
     location.reload();
   }
 

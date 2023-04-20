@@ -58,10 +58,11 @@ export class LoginComponent {
     }
 
     this.RequestService.signinUser(DadosLogin).subscribe({
-      next: (value: LoginResponse) => {
+      next: (value) => {
         window.localStorage.setItem('token', value.accessToken)
         window.localStorage.setItem('name', value.user.name)
         window.localStorage.setItem('admin', String(value.user.admin))
+        window.localStorage.setItem('id', value.user.id)
 
         this.router.navigate([''])
       },

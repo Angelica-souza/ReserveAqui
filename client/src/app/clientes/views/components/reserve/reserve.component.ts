@@ -117,16 +117,20 @@ export class ReserveComponent {
           tableId: tableId,
           date: date,
           userId
-        }
+        },
+        backdrop: false
       }
     );
 
     modalRef.content?.closeEvent
-      .subscribe(() => this.modalService.hide(modalRef.id))
+      .subscribe(() => { 
+        this.modalService.hide(modalRef.id)
+      })
   }
 
 
   onCancel() {
-    this.modalService.hide();
+    console.log('cancel all')
+    this.modalService.hide()
   }
 }

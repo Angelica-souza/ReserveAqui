@@ -75,21 +75,16 @@
       "name": "angelica",
       "admin": false,
       "id": 11
+    },
+    {
+      "email": "ana@ana",
+      "password": "$2a$10$7PaB4OpQVNqaPjeuA6obzukQe3ar1D7zZQ8wfiSZ/oF/SaM1/r0JK",
+      "name": "ana",
+      "admin": false,
+      "id": 12
     }
   ],
   "tables": [
-    {
-      "capacity": "6",
-      "num": "2",
-      "description": "teste",
-      "id": 1
-    },
-    {
-      "capacity": "4",
-      "num": "4",
-      "description": "na direita",
-      "id": 2
-    },
     {
       "capacity": "6",
       "num": "4",
@@ -97,44 +92,57 @@
       "id": 3
     },
     {
-      "capacity": "5",
-      "num": "4",
+      "capacity": "7",
+      "num": "5",
+      "status": "livre",
       "description": "na esquerda",
       "id": 4
     },
     {
-      "capacity": "3",
-      "num": "5",
-      "description": "na esquerda",
+      "capacity": "9",
+      "num": "3",
+      "status": "livre",
+      "description": "teste",
       "id": 5
     },
     {
+      "capacity": "9",
+      "num": "2",
+      "status": "livre",
+      "description": "teste",
       "id": 6
     }
   ],
   "reserves": [
     {
+      "tableId": 5,
+      "date": "2023-04-19",
       "userId": 1,
-      "tableId": 4,
-      "date": "2023-04-20",
-      "id": 8
-    },
-    {
-      "tableId": 4,
-      "date": "2023-04-21",
-      "id": 9
-    },
-    {
-      "tableId": 4,
-      "date": "2023-04-28",
-      "userId": 1,
-      "id": 10
+      "id": 1
     },
     {
       "tableId": 4,
       "date": "2023-04-19",
-      "userId": 1,
-      "id": 11
+      "userId": null,
+      "id": 2
+    },
+    {
+      "tableId": 3,
+      "date": "2023-04-19",
+      "userId": null,
+      "id": 3
+    },
+    {
+      "tableId": 4,
+      "date": "2023-04-18",
+      "userId": null,
+      "id": 4
+    },
+    {
+      "tableId": 3,
+      "date": "2023-04-21",
+      "userId": 12,
+      "id": 5
     }
   ]
 }

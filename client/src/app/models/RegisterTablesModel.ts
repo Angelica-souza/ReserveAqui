@@ -4,5 +4,4 @@ export class RegisterTablesModel{
     num!: number;
     status!: string;
     description!: string;
-    customer_id!: number;
 }

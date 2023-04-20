@@ -2,6 +2,7 @@ import { Component, EventEmitter } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { RequestService } from 'src/app/services/request.service';
 import { BsModalService } from 'ngx-bootstrap/modal';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-confirm-reservation',
@@ -26,8 +27,9 @@ export class ConfirmReservationComponent {
     return this.userService.getUserName()
   }
 
-  saveReserve(){
-    this.requestService.setReserve({tableId: this.tableId, date: this.date, userId: this.userId})
+  saveReserve() {
+    return this.requestService
+      .setReserve({tableId: this.tableId, date: this.date, userId: this.userId})
   }
 
   onCancel() {
@@ -35,7 +37,6 @@ export class ConfirmReservationComponent {
   }
 
   onConfirm(){
-    this.saveReserve();
-    this.onCancel()
+    this.saveReserve().subscribe(() => this.modalService.hide())
   }
 }
