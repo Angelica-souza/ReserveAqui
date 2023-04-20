@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ReserveComponent } from '../reserve/reserve.component';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-description',
@@ -9,11 +10,16 @@ import { ReserveComponent } from '../reserve/reserve.component';
 })
 export class DescriptionComponent {
   reserveModalRef!: BsModalRef;
-  user: string = "Angélica"
+  user!: string
 
   constructor(
-    private modalService: BsModalService
+    private modalService: BsModalService,
+    private useService: UserService
   ){}
+
+  ngOnInit(){
+    this.user = this.useService.getUserName() as string
+  }
 
   onReserve(){
     this.modalService.show(ReserveComponent, { class: 'modal-lg'})

@@ -2,7 +2,6 @@ import { Component, EventEmitter } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { RequestService } from 'src/app/services/request.service';
 import { BsModalService } from 'ngx-bootstrap/modal';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-confirm-reservation',

@@ -1,4 +1,4 @@
-import { Component, ElementRef, TemplateRef, ViewChild } from '@angular/core';
+import { Component} from '@angular/core';
 
 import { Router } from '@angular/router';
 import { RegisterTablesModel } from 'src/app/models/RegisterTablesModel';

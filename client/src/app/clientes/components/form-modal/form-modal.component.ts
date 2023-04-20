@@ -30,7 +30,6 @@ export class FormModalComponent {
       {
         capacity: [null, [Validators.required]],
         num:[null, [Validators.required]],
-        status: ['livre'],
         description: ['', [Validators.required]]
       }
     )
