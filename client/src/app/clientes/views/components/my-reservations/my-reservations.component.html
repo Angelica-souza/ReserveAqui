@@ -1,54 +1,42 @@
 <div class="container d-flex flex-column justify-content-between h-100">
-    <div
-      class="border bg-white border-1 h-100 p-3 mb-3 mt-5 d-flex flex-column justify-content-between"
-    >
+  <div class="border bg-white border-1 h-100 p-3 mb-3 mt-5 d-flex flex-column">
+
     <div class="d-flex justify-content-between">
-        <h2>Reservas</h2>
-        <button class="btn btn-primary" (click)="onReserve()"> Nova reserva</button>
+      <h2>Reservas</h2>
+      <button class="btn btn-primary" (click)="onReserve()"> Nova reserva</button>
     </div>
-   
-      <div class="w-100 m-0 d-flex justify-content-center align-items-center">
-        <table class="table table-striped table-hover text-center">
-          <thead class="bg-primary">
-            <tr class="text-white">
-              <th scope="col">Mesa</th>
-              <th scope="col">Lugares</th>
-              <th scope="col">Descrição</th>
-              <th scope="col">Data</th>
-              <th scope="col">Ações</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let reserve of reserves">
-              <th scope="row">{{ reserve.table.num }}</th>
-              <th scope="row">{{ reserve.table.capacity }}</th>
-              <th>
-                <button
-                  class="button btn d-flex justify-content-center align-items-center ms-5 mt-2"
-                  popover="teste"
-                >
-                  <img
-                    class="img_description"
-                    src="../../../../../assets/description.png"
-                    alt=""
-                    srcset=""
-                  />
-                </button>
-              </th>
-              <th scope="row"> {{ reserve.date | formatISODate }}</th>
-              <th>
-                <button
-                  (click)="confirmDelete(reserve.id)"
-                  class="btn btn-danger me-5"
-                >
-                  Cancelar
-                </button>
-              </th>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="h-25 bg-white"></div>
+    <div class=" w-100 mt-3 d-flex justify-content-center align-items-center">
+      <table class="table table-striped table-hover text-center">
+        <thead class="bg-primary">
+          <tr class="text-white">
+            <th scope="col">Mesa</th>
+            <th scope="col">Lugares</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Data</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let reserve of reserves">
+            <th scope="row">{{ reserve.table.num }}</th>
+            <th scope="row">{{ reserve.table.capacity }}</th>
+            <th>
+              <button class="button btn d-flex justify-content-center align-items-center ms-5 mt-2" popover="teste">
+                <img class="img_description" src="../../../../../assets/description.png" alt="" srcset="" />
+              </button>
+            </th>
+            <th scope="row"> {{ reserve.date | formatISODate }}</th>
+            <th>
+              <button (click)="confirmDelete(reserve.id)" class="btn btn-danger me-5">
+                Cancelar
+              </button>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div *ngIf="!!isNoTable" class=" h-100 d-flex justify-content-center align-items-center">
+      Não foi encontrado nem um registro
     </div>
   </div>
-  
+</div>

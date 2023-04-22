@@ -21,6 +21,8 @@ export class ManageTablesComponent {
   deleteModal!: BsModalRef<ConfirmDeleteModalComponent>;
   formModal!: BsModalRef<FormModalComponent>;
 
+  isNoTable!: boolean
+
   // @ViewChild(FormModalComponent) edit!: FormModalComponent
 
   constructor(
@@ -43,7 +45,10 @@ export class ManageTablesComponent {
   listTables() {
     this.requestService.getTables().subscribe({
       next: (value) => {
+
+        value && value.length > 0 ? this.isNoTable = false : this.isNoTable = true
         this.tables = value
+        
       },
       error(err) {
         console.error("errors");

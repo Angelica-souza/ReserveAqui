@@ -23,6 +23,7 @@ export class ReserveComponent {
   table!: RegisterTablesModel[]
   selectedTable!: RegisterTablesModel;
   message!: string;
+  isNoTable!: boolean;
 
   //Config de date e time
   hoje: Date = new Date();
@@ -55,8 +56,15 @@ export class ReserveComponent {
   listOfSeatsTable() {
     this.requestService.getTables().subscribe({
       next: (value: RegisterTablesModel[]) => {
-        this.filterCapacity = this.filterTablesCapacityStatus(value);
+        if (value && value.length > 0) {
+          this.isNoTable = false;
+          
+          this.filterCapacity = this.filterTablesCapacityStatus(value);
+        } else {
+          this.isNoTable = true;
+        }
       }
+
     })
   }
 
@@ -76,7 +84,7 @@ export class ReserveComponent {
 
     const monthISO = `${date.getMonth() + 1}`.padStart(2, '0')
     const fullDateISO = `${date.getFullYear()}-${monthISO}-${date.getDate()}`
-    
+
     this.requestService.getTablesWithReserves(capacity).subscribe((values) => {
       const tableId = this.selectAvailableTableId(fullDateISO, values);
 
@@ -123,7 +131,7 @@ export class ReserveComponent {
     );
 
     modalRef.content?.closeEvent
-      .subscribe(() => { 
+      .subscribe(() => {
         this.modalService.hide(modalRef.id)
       })
   }

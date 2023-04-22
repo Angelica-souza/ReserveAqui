@@ -17,6 +17,8 @@ export class MyReservationsComponent {
   reserveModal!: BsModalRef;
   deleteModal!: BsModalRef<ConfirmDeleteModalComponent>
 
+  isNoTable!: boolean
+
   constructor(
     private requestService: RequestService, 
     private modalService: BsModalService,
@@ -32,7 +34,10 @@ export class MyReservationsComponent {
 
     this.requestService.getReservesWithTableByUser(id).subscribe({
       next: (values) => {
+
+        values && values.length > 0 ? this.isNoTable = false : this.isNoTable = true
         this.reserves = values
+        
       },
       error(err) {
         console.error("errors");
