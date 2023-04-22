@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 import { Router } from '@angular/router';
 import { RegisterTablesModel } from 'src/app/models/RegisterTablesModel';
@@ -31,8 +31,9 @@ export class ManageTablesComponent {
   ) { }
 
   ngOnInit() {
-    this.isVisible();
     this.listTables();
+    this.isVisible();
+
   }
 
   isVisible() {
@@ -66,8 +67,14 @@ export class ManageTablesComponent {
 
   deleteTable() {
     this.deleteModal.content?.event.subscribe((value) => {
-      this.requestService.delTables(value.tableId).subscribe((value) => {
-        this.listTables()
+      console.log(value.tableId)
+      this.requestService.delTables(value.tableId).subscribe({
+        next: (value) => {
+          this.listTables()
+        },
+        error: (error) => {
+          console.error(error)
+        }
       })
     })
   }
@@ -95,9 +102,9 @@ export class ManageTablesComponent {
     })
 
     this.formModal.content?.event.subscribe((requeste) => {
-        this.requestService.editTable(id, requeste.dataTables).subscribe(() => { 
-            this.listTables()
-        })
+      this.requestService.editTable(id, requeste.dataTables).subscribe(() => {
+        this.listTables()
+      })
     })
   }
 }

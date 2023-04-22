@@ -4,6 +4,7 @@ import { ConfirmDeleteModalComponent } from 'src/app/clientes/components/confirm
 import { ReserveTableModel } from 'src/app/models/ReserveTableModel';
 import { RequestService } from 'src/app/services/request.service';
 import { UserService } from 'src/app/services/user.service';
+import { ReserveComponent } from '../reserve/reserve.component';
 
 
 @Component({
@@ -59,5 +60,9 @@ export class MyReservationsComponent {
           this.listReserves()
         })
     })
+  }
+
+  onReserve(){
+    this.modalService.show(ReserveComponent, { class: 'modal-lg'})
   }
 }

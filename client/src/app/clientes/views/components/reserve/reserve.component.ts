@@ -130,7 +130,6 @@ export class ReserveComponent {
 
 
   onCancel() {
-    console.log('cancel all')
     this.modalService.hide()
   }
 }
