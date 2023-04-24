@@ -45,10 +45,8 @@ export class ManageTablesComponent {
   listTables() {
     this.requestService.getTables().subscribe({
       next: (value) => {
-
         value && value.length > 0 ? this.isNoTable = false : this.isNoTable = true
         this.tables = value
-        
       },
       error(err) {
         console.error("errors");

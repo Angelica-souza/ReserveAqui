@@ -16,7 +16,7 @@
               <th scope="col">Ações</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody *ngIf="!!isNoTable">
             <tr *ngFor="let table of tables">
               <th scope="row">{{ table.num }}</th>
               <th scope="row">{{ table.capacity }}</th>
